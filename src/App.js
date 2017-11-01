@@ -11,16 +11,30 @@ import {
   Text,
   View
 } from 'react-native';
+import firebase from 'firebase';
 import { Header } from './components/common';
 
-export default class App extends Component<{}> {
+class App extends Component {
+
+  // life cycle methods are methods that are automatically envoked inside our component
+  componentWillMount() {
+    firebase.initializeApp({
+      apiKey: 'AIzaSyAO4oW046ymy3EzOSqTWg3BltJ77aNeFIE',
+      authDomain: 'reactnativeauth-6c91a.firebaseapp.com',
+      databaseURL: 'https://reactnativeauth-6c91a.firebaseio.com',
+      projectId: 'reactnativeauth-6c91a',
+      storageBucket: 'reactnativeauth-6c91a.appspot.com',
+      messagingSenderId: '781139483620'
+    })
+  }
+
   render() {
     return (
       <View>
         <Header headerText="Authentication" />
         <Text style={styles.welcome}>
           Welcome to React Native!
-        </Text>        
+        </Text>
       </View>
     );
   }
@@ -44,3 +58,5 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
+export default App;
