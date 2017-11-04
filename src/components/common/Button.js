@@ -1,12 +1,12 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 
-const Button = ({ whenPressed, children }) => {
+const Button = ({ onPress, children }) => {
     const { buttonStyle, textStyle } = styles;
 
     return (
         // the onPress below is a prop that is specific to touchableOpacity different that the one in the album list
-        <TouchableOpacity onPress={whenPressed} style={buttonStyle}>
+        <TouchableOpacity onPress={onPress} style={buttonStyle}>
             <Text style={textStyle}>
                 {children}
             </Text>
